@@ -1,8 +1,41 @@
-# Image Data Augmentation for MATLAB
+# Synthetic Data Generator
 
-A comprehensive MATLAB script for performing data augmentation on image datasets to increase dataset size through synthetic image generation.
+🎨 **Complete toolkit for generating synthetic images** - from basic augmentation to advanced AI generation!
 
-## Features
+This repository provides multiple approaches to create synthetic image data:
+1. **Data Augmentation** - Transform existing images (fast, no training)
+2. **AI Generation** - Create completely NEW images using Deep Learning (GAN, VAE, Stable Diffusion)
+
+## 📚 Table of Contents
+
+- [Quick Start Guide](#quick-start-guide)
+- [Data Augmentation](#data-augmentation) - Traditional image transformations
+- [AI Image Generation](#ai-image-generation) - Deep Learning powered (NEW! 🤖)
+- [Installation](#installation)
+- [Documentation](#documentation)
+
+---
+
+## Quick Start Guide
+
+### Which Method Should I Use?
+
+| Method | Best For | Training Required | Time |
+|--------|----------|-------------------|------|
+| **Data Augmentation** | Expanding existing datasets | ❌ No | ⚡ Instant |
+| **Stable Diffusion** | Photorealistic images from text | ❌ No | ⚡ Seconds |
+| **GAN** | Dataset-specific realistic images | ✅ Yes | ⏰ Hours |
+| **VAE** | Style learning & interpolations | ✅ Yes | ⏰ Hours |
+
+👉 **Most users should start with Data Augmentation or Stable Diffusion!**
+
+---
+
+## Data Augmentation
+
+Transform existing images to create variations - **no AI training required!**
+
+### Features
 
 - **Multiple Transformation Types**: Rotation, flipping, scaling, brightness adjustment, and Gaussian noise
 - **Batch Processing**: Automatically processes all images in a folder
@@ -252,8 +285,137 @@ Feel free to modify and extend this script for your specific needs. Common exten
 - Blur/sharpening filters
 - Custom augmentation pipelines
 
+---
+
+## AI Image Generation
+
+🤖 **Generate COMPLETELY NEW images using Artificial Intelligence!**
+
+Unlike data augmentation which transforms existing images, AI generation creates entirely new content from scratch or from text descriptions.
+
+### Available AI Methods
+
+#### 1. **Stable Diffusion** (RECOMMENDED) 🎨
+- **Generate photorealistic images from text prompts**
+- No training required - uses pretrained models
+- Highest quality output
+- Examples: "a sunset over mountains", "a cute robot", etc.
+
+```bash
+# Python
+python ai_image_generator_stable_diffusion.py --prompt "your text here"
+
+# MATLAB Wrapper
+ai_image_generator_matlab_wrapper()
+```
+
+**Files**: `ai_image_generator_stable_diffusion.py`, `ai_image_generator_matlab_wrapper.m`
+
+#### 2. **GAN (Generative Adversarial Network)** ⚡
+- Learns from your dataset to generate similar images
+- Creates realistic variations
+- Requires training on your data (2-6 hours with GPU)
+
+```matlab
+ai_image_generator_gan()
+```
+
+**File**: `ai_image_generator_gan.m`
+
+#### 3. **VAE (Variational Autoencoder)** 🔄
+- Learns image style and creates variations
+- Generates smooth interpolations between images
+- More stable training than GAN
+
+```matlab
+ai_image_generator_vae()
+```
+
+**File**: `ai_image_generator_vae.m`
+
+### Setup for AI Generation
+
+**For Stable Diffusion (Python)**:
+```bash
+pip install -r requirements.txt
+```
+
+**For GAN/VAE (MATLAB)**:
+- Deep Learning Toolbox
+- Image Processing Toolbox
+- GPU recommended
+
+### 📖 Complete AI Documentation
+
+See **[AI_GENERATOR_README.md](AI_GENERATOR_README.md)** for:
+- Detailed setup instructions
+- Configuration parameters
+- Prompt engineering guide
+- Troubleshooting
+- Hardware requirements
+- Examples and tutorials
+
+---
+
+## Installation
+
+### Basic Setup (Data Augmentation)
+1. Install MATLAB R2019a or later
+2. Install Image Processing Toolbox
+3. Clone this repository
+4. Add images to `input_images/` folder
+5. Run `image_augmentation()`
+
+### AI Setup (Optional)
+
+**For Stable Diffusion**:
+```bash
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Test installation
+python ai_image_generator_stable_diffusion.py --prompt "test image"
+```
+
+**For GAN/VAE**:
+- Install MATLAB Deep Learning Toolbox
+- GPU with CUDA support recommended
+- Add images to `input_images/` folder
+
+---
+
+## Documentation
+
+### Main Documentation Files
+
+- **[README.md](README.md)** - This file, overview and data augmentation
+- **[AI_GENERATOR_README.md](AI_GENERATOR_README.md)** - Complete AI generation guide
+- **[example_usage.m](example_usage.m)** - MATLAB examples and demos
+- **[requirements.txt](requirements.txt)** - Python dependencies
+
+### All Available Scripts
+
+**Data Augmentation**:
+- `image_augmentation.m` - Standard augmentation
+- `image_augmentation_deep_learning.m` - Deep Learning Toolbox version
+- `visualize_augmentations.m` - Preview transformations
+
+**AI Generation**:
+- `ai_image_generator_gan.m` - GAN implementation
+- `ai_image_generator_vae.m` - VAE implementation
+- `ai_image_generator_stable_diffusion.py` - Stable Diffusion (Python)
+- `ai_image_generator_matlab_wrapper.m` - MATLAB interface to Stable Diffusion
+
+**Utilities**:
+- `example_usage.m` - Examples and tutorials
+
+---
+
 ## Contact & Support
 
-For issues or questions, please refer to MATLAB documentation:
-- Image Processing Toolbox: https://www.mathworks.com/help/images/
-- Deep Learning Toolbox: https://www.mathworks.com/help/deeplearning/
+For issues or questions, please refer to:
+- MATLAB Documentation:
+  - Image Processing Toolbox: https://www.mathworks.com/help/images/
+  - Deep Learning Toolbox: https://www.mathworks.com/help/deeplearning/
+- Stable Diffusion: https://huggingface.co/docs/diffusers
+- PyTorch: https://pytorch.org/
